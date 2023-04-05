@@ -1,0 +1,338 @@
+/* --------- This is CSS Reset Code --------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/* --------- Begin your CSS Below here --------- */
+/** general styling  */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: 300;
+}
+.App {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+h2 {
+	font-size: 1.5em;
+}
+button {
+	border: none;
+	border-radius: 2px;
+	height: 40px;
+	width: 120px;
+	font-size: 1em;
+	color: white;
+	background-color: rgb(60, 161, 144);
+}
+button:hover {
+	background-color: rgb(110, 192, 178);
+}
+
+/** header styling */
+header {
+	width: 100%;
+	height: 60px;
+	background-color: rgb(255, 125, 0);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+}
+header h2 {
+	margin-left: 80px;
+}
+header nav {
+	margin-right: 40px;
+	display: flex;
+	width: 220px;
+	justify-content: space-between;
+}
+header nav button {
+	border: none;
+	background-color: rgb(255, 125, 0);
+	font-size: 1.2em;
+	color: white;
+	padding: 10px;
+}
+header nav button:hover {
+	color: black;
+	cursor: pointer;
+	background-color: rgb(255, 125, 0);
+}
+
+/** Ad banner styling  */
+.addBanner {
+	height: 300px;
+}
+.addBanner-info {
+	height: 100%;
+	width: 60%;
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	color:white;
+	text-align: center;
+}
+.addBanner-info h1 {
+	font-size: 2.5em;
+	font-weight: 600;
+	color: rgb(255, 125, 0);
+}
+.addBanner-info h3 {
+	font-size: 1em
+}
+
+
+
+/** search styling */
+.search-container {
+	border-radius: 20px;
+	background-color: rgb(255, 223, 196);
+	display: flex;
+	align-items: center;
+	width: 400px;
+	height: 40px;
+	margin: 20px auto;
+	padding: 0 10px;
+}
+.search-container input {
+	height: 100%;
+	width: 100%;
+	padding-left: 5px;
+	border: none;
+	border-radius: 20px;
+	font-size: 1.2em;
+	background-color: rgb(255, 223, 196);
+}
+.search-container input:focus {
+	outline: none;
+}
+
+
+
+
+/** recipe cards */
+.recipe-card-container {
+	width: 90%;
+	max-width: 1100px;
+	margin: 40px auto;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+.recipe-card {
+	height: 400px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 3px 6px 1px rgba(128, 128, 128, 0.5);
+	margin: 20px 20px;
+}
+.recipe-card img {
+	width: 100%;
+	height: 70%;
+	object-fit: cover;
+}
+.recipe-card-name {
+	height: 30%;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5%;
+}
+.recipe-card-name h3 {
+	font-size: 1.25em;
+}
+
+
+/** Details Page Styling  */
+.detail-banner {
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 40px;
+}
+.detail-banner h1 {
+	font-size: 2.5em;
+	font-weight: 600;
+	color: rgb(255, 125, 0);
+	max-width: 800px;
+	text-align: center;
+}
+
+.recipe-details-container {
+	width: 100%;
+	padding: 20px 0 40px 0;
+	display:flex;
+	justify-content: center;
+}
+.ingredients-container {
+	width: 250px;
+	height: 100%;
+	margin: 0 40px;
+	padding: 16px;
+	box-shadow: 0 3px 6px 1px rgba(128, 128, 128, 0.5);
+}
+.recipe-list {
+	margin-bottom: 40px;
+}
+.details-title {
+	font-size: 1.5em;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.details-lists {
+	font-size: 1em;
+	list-style-type: none;
+}
+.details-lists li {
+	padding: 4px;
+}
+.instructions-container {
+	width: 400px;
+	height: 100%;
+	margin: 0 40px;
+	padding: 15px;
+	box-shadow: 0 3px 6px 1px rgba(128, 128, 128, 0.5);
+}
+
+
+/** New Recipe Form Styling  */
+.new-recipe-form-container {
+	text-align: center;
+	padding: 20px;
+}
+.new-recipe-form-container h1 {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+}
+
+.new-recipe-form {
+	max-width: 400px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.input-containers {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 8px 0;
+}
+input {
+	width: 100px;
+	padding: 5px;
+}
+
+.recipe-name-url {
+	
+}
+
+
+.recipe-type {
+
+}
+
+.recipe-stats {
+
+}
+
+.recipe-ingredients-container {
+	
+}
+.recipe-ingredients-inputs {
+	display:flex;
+	flex-direction: column;
+
+}
+.form-instructions {
+	margin: 8px;
+}
+.form-buttons {
+	margin: 8px;
+}
+
+
+
+/** footer styling */
+footer {
+	width: 100%;
+	height: 150px;
+	background-color: rgb(100, 100, 100);
+	margin-top: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 80px;
+	color: white;
+}
+.footer-social-container {
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.footer-social-container h5 {
+	font-size: 1.3em;
+}
+.footer-social-icons {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.footer-social-icon {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 5px;
+	background-color: rgb(60, 161, 144);
+}
+.footer-social-icon:hover {
+	background-color: rgb(110, 192, 178);
+	cursor: pointer;
+}
+.footer-social-icon a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
