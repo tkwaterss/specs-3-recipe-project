@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Formik, Field } from "formik";
 import axios from "axios";
 
+//TODO Implement use reducer for this state
+
 const NewRecipeScreen = () => {
   const [ingredients, setIngredients] = useState([]);
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState('');
 
   console.log(ingredients);
 
@@ -24,7 +26,7 @@ const NewRecipeScreen = () => {
     setIngredients([...ingredients, { name, quantity }]);
 
     setName("");
-    setQuantity(0);
+    setQuantity('');
   };
 
   const onSubmit = (values) => {
@@ -32,6 +34,10 @@ const NewRecipeScreen = () => {
     console.log(values);
 
     axios.post("https://recipes.devmountain.com/recipes", values);
+
+    //!formik.handleReset();
+    //! on submit navigate to details page for new recipe
+    
   };
 
   return (
@@ -52,7 +58,7 @@ const NewRecipeScreen = () => {
               <input
                 id="imageURL"
                 name="imageURL"
-                value={values.imageURL}
+                value={values.imageURL} 
                 onChange={handleChange}
                 type="text"
                 placeholder="Image URL"
@@ -61,6 +67,7 @@ const NewRecipeScreen = () => {
             <div className="input-containers recipe-type">
               <label htmlFor="cook">
                 <Field
+                  className="radio-button"
                   id="cook"
                   name="type"
                   value="cook"
@@ -71,6 +78,7 @@ const NewRecipeScreen = () => {
               </label>
               <label htmlFor="bake">
                 <Field
+                  className="radio-button"
                   id="bake"
                   name="type"
                   value="bake"
@@ -81,6 +89,7 @@ const NewRecipeScreen = () => {
               </label>
               <label htmlFor="drink">
                 <Field
+                  className="radio-button"
                   id="drink"
                   name="type"
                   value="drink"
@@ -127,17 +136,18 @@ const NewRecipeScreen = () => {
                 <input
                   value={quantity}
                   onChange={(event) => setQuantity(event.target.value)}
-                  type="number"
+                  type="text"
                   placeholder="Quantity"
                 />
               </div>
               <ul className="recipe-ingredients-list">
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
+                {ingredients.map(item => {
+                  return <li>{`${item.quantity} ${item.name}`}</li>
+                })}
               </ul>
             </div>
             <button
+              id="add-ingredient-btn"
               type="button"
               onClick={addIngredient}
               className="form-buttons"
