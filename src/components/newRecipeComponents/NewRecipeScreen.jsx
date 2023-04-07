@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Formik, Field } from "formik";
 import axios from "axios";
-
-//TODO Implement use reducer for this state
+import { useNavigate } from "react-router-dom";
 
 const NewRecipeScreen = () => {
   const [ingredients, setIngredients] = useState([]);
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState('');
+  const [quantity, setQuantity] = useState("");
 
-  console.log(ingredients);
+  const navigate = useNavigate();
 
   const initialValues = {
     type: "",
@@ -26,18 +25,17 @@ const NewRecipeScreen = () => {
     setIngredients([...ingredients, { name, quantity }]);
 
     setName("");
-    setQuantity('');
+    setQuantity("");
   };
 
   const onSubmit = (values) => {
     values.ingredients = ingredients;
-    console.log(values);
-
-    axios.post("https://recipes.devmountain.com/recipes", values);
-
-    //!formik.handleReset();
-    //! on submit navigate to details page for new recipe
-    
+    axios
+      .post("https://recipes.devmountain.com/recipes", values)
+      .then((res) => {
+        navigate(`/recipe/${res.data[0][0].recipe_id}`);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -58,7 +56,7 @@ const NewRecipeScreen = () => {
               <input
                 id="imageURL"
                 name="imageURL"
-                value={values.imageURL} 
+                value={values.imageURL}
                 onChange={handleChange}
                 type="text"
                 placeholder="Image URL"
@@ -141,8 +139,8 @@ const NewRecipeScreen = () => {
                 />
               </div>
               <ul className="recipe-ingredients-list">
-                {ingredients.map(item => {
-                  return <li>{`${item.quantity} ${item.name}`}</li>
+                {ingredients.map((item) => {
+                  return <li>{`${item.quantity} ${item.name}`}</li>;
                 })}
               </ul>
             </div>

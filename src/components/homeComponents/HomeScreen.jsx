@@ -22,8 +22,6 @@ const HomeScreen = () => {
     getRecipes();
   }, []);
 
-//!Need to add a filter using the search input
-
   let recipesList = recipes.filter(recipe => {
     return recipe.recipe_name.toLowerCase().includes(search.toLowerCase())
   }).map(recipe => {

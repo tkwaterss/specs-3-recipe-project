@@ -38,7 +38,7 @@ h2 {
 }
 button {
 	border: none;
-	border-radius: 2px;
+	border-radius: 3px;
 	height: 40px;
 	width: 120px;
 	font-size: 1em;
@@ -160,11 +160,13 @@ header nav button:hover {
 	justify-content: space-between;
 	box-shadow: 0 3px 6px 1px rgba(128, 128, 128, 0.5);
 	margin: 20px 20px;
+	border-radius: 3px;
 }
 .recipe-card img {
 	width: 100%;
 	height: 70%;
 	object-fit: cover;
+	border-radius: 3px;
 }
 .recipe-card-name {
 	height: 30%;

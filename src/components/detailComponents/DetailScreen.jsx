@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import PageBanner from "./PageBanner";
 
 const DetailScreen = () => {
   const [recipe, setRecipe] = useState({});
@@ -25,18 +26,7 @@ const DetailScreen = () => {
   //*Might have fixed using the && conditional on all inserted dynamic values
   return (
     <>
-      <section
-        className="detail-banner"
-        style={recipe.image_url && {
-          background: `linear-gradient(
-          190deg,
-          rgba(0, 0, 0, 0.8),
-          rgba(0, 0, 0, 0.5)),
-          url(${recipe.image_url}) no-repeat center center / cover`,
-        }}
-      >
-        <h1>{recipe.recipe_name}</h1>
-      </section>
+      <PageBanner title={recipe.recipe_name} address={recipe.image_url} />
       <section className="recipe-details-container">
         <div className="ingredients-container">
           <div className="recipe-list">
